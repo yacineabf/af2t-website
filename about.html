@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link rel="icon" type="image/png" href="assets/Logo.png"/>
     <title>À propos - AF2T | Notre Histoire et Expertise</title>
     <meta name="description" content="Découvrez AF2T - Plus de 20 ans d'expertise en transit et transport international au Maroc. Agréé par les Douanes Marocaines depuis 2004."/>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
@@ -68,7 +69,7 @@
     <header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-[20px]">
         <nav class="flex justify-between items-center w-full px-6 lg:px-8 py-4 max-w-7xl mx-auto">
             <div class="flex items-center gap-3">
-                <img alt="AF2T Logo" class="h-12 w-auto" src="assets/Logo.jpg"/>
+                <img alt="AF2T Logo" class="h-12 w-auto" src="assets/Logo.png"/>
             </div>
             <div class="hidden lg:flex items-center gap-8 font-headline text-sm font-medium">
                 <a class="text-on-surface-variant hover:text-primary transition-colors" href="index.html">Accueil</a>
@@ -77,9 +78,9 @@
                 <a class="text-on-surface-variant hover:text-primary transition-colors" href="why-us.html">Pourquoi nous choisir</a>
                 <a class="text-on-surface-variant hover:text-primary transition-colors" href="contact.html">Contact</a>
                 <div class="flex items-center gap-2 px-4 py-2 bg-surface-container-low/60 backdrop-blur-md rounded-full">
-                    <span class="text-primary font-bold text-xs">FR</span>
+                    <button id="lang-fr" class="text-primary font-bold text-xs cursor-pointer hover:opacity-80 transition-opacity">FR</button>
                     <span class="text-outline-variant">|</span>
-                    <span class="text-outline text-xs">العربية</span>
+                    <button id="lang-ar" class="text-outline text-xs cursor-pointer hover:text-primary transition-colors">العربية</button>
                 </div>
             </div>
             <a href="contact.html" class="hidden lg:block bg-on-tertiary-container text-white px-6 py-3 rounded-lg font-headline font-bold text-sm hover:scale-105 transition-transform">
@@ -354,6 +355,36 @@
                 mobileMenu.classList.add('hidden');
             });
         });
+
+        // Language switcher
+        const langFr = document.getElementById('lang-fr');
+        const langAr = document.getElementById('lang-ar');
+        const htmlElement = document.documentElement;
+
+        langAr.addEventListener('click', () => {
+            htmlElement.setAttribute('dir', 'rtl');
+            htmlElement.setAttribute('lang', 'ar');
+            langAr.classList.remove('text-outline');
+            langAr.classList.add('text-primary', 'font-bold');
+            langFr.classList.remove('text-primary', 'font-bold');
+            langFr.classList.add('text-outline');
+            localStorage.setItem('language', 'ar');
+        });
+
+        langFr.addEventListener('click', () => {
+            htmlElement.setAttribute('dir', 'ltr');
+            htmlElement.setAttribute('lang', 'fr');
+            langFr.classList.remove('text-outline');
+            langFr.classList.add('text-primary', 'font-bold');
+            langAr.classList.remove('text-primary', 'font-bold');
+            langAr.classList.add('text-outline');
+            localStorage.setItem('language', 'fr');
+        });
+
+        const savedLang = localStorage.getItem('language');
+        if (savedLang === 'ar') {
+            langAr.click();
+        }
     </script>
 </body>
 </html>

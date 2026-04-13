@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(ls -lh *.html)"
+      "Bash(ls -lh *.html)",
+      "Bash(python -m http.server 8000)"
     ]
   }
 }
