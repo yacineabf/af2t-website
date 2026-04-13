@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ba1a1a",
+                        "surface-container": "#efedf3",
+                        "on-error": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface-bright": "#faf8ff",
+                        "surface-container-high": "#e9e7ee",
+                        "secondary": "#555d7a",
+                        "on-tertiary-fixed": "#360f00",
+                        "primary": "#00113a",
+                        "inverse-on-surface": "#f1f0f6",
+                        "secondary-container": "#d4dcfd",
+                        "tertiary-fixed-dim": "#ffb596",
+                        "surface-container-low": "#f4f3f9",
+                        "on-surface": "#1a1b20",
+                        "secondary-fixed": "#dbe1ff",
+                        "surface-tint": "#435b9f",
+                        "tertiary-container": "#4b1800",
+                        "primary-fixed-dim": "#b3c5ff",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#757682",
+                        "surface-variant": "#e3e2e8",
+                        "on-primary-fixed-variant": "#2a4386",
+                        "surface": "#faf8ff",
+                        "tertiary-fixed": "#ffdbcd",
+                        "primary-container": "#002366",
+                        "on-surface-variant": "#444650",
+                        "on-secondary-container": "#58607c",
+                        "tertiary": "#290a00",
+                        "on-tertiary-container": "#f36100",
+                        "inverse-surface": "#2f3035",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e3e2e8",
+                        "background": "#faf8ff",
+                        "on-tertiary-fixed-variant": "#7c2e00",
+                        "on-error-container": "#93000a",
+                        "on-background": "#1a1b20",
+                        "inverse-primary": "#b3c5ff",
+                        "on-primary-fixed": "#00174a",
+                        "secondary-fixed-dim": "#bdc5e6",
+                        "surface-dim": "#dad9e0",
+                        "outline-variant": "#c5c6d2",
+                        "on-secondary-fixed-variant": "#3e4661",
+                        "primary-fixed": "#dbe1ff",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#758dd5",
+                        "on-secondary-fixed": "#121a33",
+                        "on-primary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .scale-102-hover:hover { transform: scale(1.02); }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md transition-all duration-300">
+<nav class="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
+<div class="flex items-center gap-2">
+<img alt="AF2T Global Logistics Logo" class="h-10 w-auto" data-alt="professional modern logistics company logo with bold typography and abstract transit icon in deep navy and orange" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtrgl8nvdfI8GFQd2u73SxJdJkwePuw2MDOMMYb1K6dXZX7CDCv2Xb1fpGUWuVqcmSrUVk76luBPH2vGog1zCMPdGnW5mzAhbEEt7Iq70DcC-1pv4URv2kQW_XwTSjfZa14HPKr24DJRd0pohmV52Af7EaQCYvg0VMCdBnlG7tLah5SiTf6Urz9APbdYuOTkr0Cq8iIIXk8vMESl0hsEuEt10B0Z3f1Jm2v-aheNvzwJX0BzTLkrDk7K3Ta46MM6ARwZtZLYG-6-E"/>
+<span class="text-2xl font-bold tracking-tighter text-blue-900 dark:text-white headline font-headline">AF2T</span>
+</div>
+<div class="hidden md:flex items-center gap-8 font-manrope text-sm font-medium tracking-wide">
+<a class="text-blue-900 dark:text-white border-b-2 border-orange-600 pb-1" href="#">Accueil</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white transition-all duration-300" href="#about">À propos</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white transition-all duration-300" href="#services">Services</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white transition-all duration-300" href="#why-us">Pourquoi nous choisir</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white transition-all duration-300" href="#contact">Contact</a>
+<div class="flex items-center gap-2 px-3 py-1 bg-surface-container-low rounded-full">
+<span class="text-blue-900 font-bold">FR</span>
+<span class="text-outline-variant">|</span>
+<span class="text-slate-400">العربية</span>
+</div>
+</div>
+<button class="bg-on-tertiary-container text-white px-6 py-2.5 rounded-lg font-headline font-bold text-sm scale-102-hover transition-transform">
+                Demander un devis
+            </button>
+</nav>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative h-screen min-h-[700px] flex items-center overflow-hidden bg-primary-container">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-r from-primary-container via-primary-container/80 to-transparent z-10"></div>
+<img alt="Logistics Port" class="w-full h-full object-cover" data-alt="Cinematic wide shot of a modern automated container terminal at dusk with massive cargo ships and orange sunset lighting reflecting on cranes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDG6ue4mvOm0WCNCnuF2veWopC4pUccdgawXCU9YQOlXLbjIRdcRtVZTyMTJmgQItKLyQK2L6xyg0T-T3joODq5rc8yz491bQmPnfjc9gp3KQySpWsZFrqJ0t7f7UFEABHgC3r9QEwI5jtCW55MuoHLy6qzTOF0DzUK52AQF5gM1ziJlbqKezMwPkOLi6QqgUpVY9JJYzszVlMamzmM2FH0MBWmW9rJCXx5cY54YiQpqc6ZvcBOMfdQvFu8usQV7cvH4b0n2KMhifU"/>
+</div>
+<div class="relative z-20 max-w-7xl mx-auto px-8 w-full pt-20">
+<div class="max-w-3xl space-y-8">
+<div class="space-y-4">
+<h1 class="text-5xl md:text-6xl font-extrabold text-white font-headline leading-tight tracking-tighter">
+                            Votre Partenaire Fiable en Transit et Transport International au Maroc
+                        </h1>
+<h2 class="text-3xl md:text-4xl font-bold text-on-tertiary-container font-headline" dir="rtl">
+                            شريككم الموثوق في الترانزيت والنقل الدولي بالمغرب
+                        </h2>
+</div>
+<p class="text-lg md:text-xl text-on-primary-container font-medium tracking-wide">
+                        Fret Aérien • Fret Maritime • Transport Routier • Dédouanement • Groupage
+                    </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="bg-on-tertiary-container text-white px-8 py-4 rounded-lg font-headline font-bold text-lg scale-102-hover transition-transform">
+                            Demander un devis
+                        </button>
+<button class="border-2 border-white/30 text-white hover:bg-white/10 px-8 py-4 rounded-lg font-headline font-bold text-lg transition-all">
+                            Découvrir nos services
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- About Us Section -->
+<section class="py-24 bg-surface" id="about">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid lg:grid-cols-2 gap-16 items-center">
+<div class="relative">
+<div class="aspect-[4/5] rounded-xl overflow-hidden shadow-2xl">
+<img alt="AF2T Warehouse" class="w-full h-full object-cover" data-alt="Clean and organized modern logistics warehouse with high-bay shelving and a white AF2T truck fleet in the foreground under bright daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiz8d4RCFxvy9N7mceosa-gbP1G3i4jjGyezZ5_i_lNQBE2BlIVMFqFBkWNlRTR0DtoFZnjzJtm93bMjmuYLPZQLQzPpPqbLz4jO-9gqyH4CDXXiF4eE3oxZmW9pBPRx8uBZg4EYDAx7tbhXFqzDbiBD6pfwwcOVStG2MdkwcinIcvLbHoK7BJy-0TZRSAzxVaysum5oWMiO7qU8Oq2sPfwKkGrTKS_oLocAzQZm7akDDF2gZ7fV1yv8c9YlQChtRJ_zI50AXHjpY"/>
+</div>
+<div class="absolute -bottom-6 -right-6 bg-primary-container p-8 rounded-xl text-white shadow-xl max-w-[240px]">
+<div class="text-4xl font-black font-headline text-on-tertiary-container">+20</div>
+<div class="text-sm font-bold uppercase tracking-widest mt-1">Ans d'expérience</div>
+<div class="mt-4 pt-4 border-t border-white/10 flex items-center gap-2">
+<span class="material-symbols-outlined text-on-tertiary-container">verified</span>
+<span class="text-xs font-semibold">Agréé par les Douanes</span>
+</div>
+</div>
+</div>
+<div class="space-y-8">
+<div>
+<span class="text-on-tertiary-container font-bold tracking-widest uppercase text-sm">Notre Histoire</span>
+<h2 class="text-4xl font-extrabold text-blue-900 font-headline mt-2">À propos d'AF2T</h2>
+</div>
+<div class="space-y-6 text-on-surface-variant leading-relaxed">
+<p class="text-lg">
+                                Établie en 2004, <strong>AF2T Global Logistics</strong> est une SARL basée à Marrakech, reconnue comme un acteur majeur du transit international au Maroc. En tant que commissionnaire en transport et transitaire agréé, nous facilitons vos échanges mondiaux.
+                            </p>
+<p class="text-right text-lg font-medium" dir="rtl">
+                                تأسست شركة AF2T في عام 2004، وهي شركة ذات مسؤولية محدودة مقرها مراكش، ومعتمدة كمبشر جمركي وفاعل رئيسي في النقل الدولي بالمغرب. نحن نضمن سلاسة مبادلاتكم التجارية العالمية.
+                            </p>
+</div>
+<div class="grid sm:grid-cols-2 gap-4">
+<div class="bg-surface-container-low p-4 rounded-lg flex items-center gap-4">
+<div class="bg-white p-3 rounded shadow-sm">
+<span class="material-symbols-outlined text-primary-container">location_on</span>
+</div>
+<span class="font-bold text-blue-900">Siège à Marrakech</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-lg flex items-center gap-4">
+<div class="bg-white p-3 rounded shadow-sm">
+<span class="material-symbols-outlined text-primary-container">shield_with_heart</span>
+</div>
+<span class="font-bold text-blue-900">Expertise Douanière</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="py-24 bg-surface-container-low" id="services">
+<div class="max-w-7xl mx-auto px-8">
+<div class="text-center mb-16 space-y-4">
+<h2 class="text-4xl font-extrabold text-blue-900 font-headline">Nos Services</h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto">Solutions logistiques intégrées pour une gestion fluide de vos flux de marchandises à l'international.</p>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Service Card 1 -->
+<div class="bg-white p-8 rounded-xl scale-102-hover transition-all duration-300 group">
+<div class="bg-surface-container-low w-14 h-14 flex items-center justify-center rounded-lg mb-6 group-hover:bg-on-tertiary-container transition-colors">
+<span class="material-symbols-outlined text-3xl text-primary-container group-hover:text-white">gavel</span>
+</div>
+<h3 class="text-xl font-bold text-blue-900 font-headline mb-1">Transit &amp; Dédouanement</h3>
+<p class="text-sm font-semibold text-on-tertiary-container mb-4" dir="rtl">الترانزيت والتخليص الجمركي</p>
+<p class="text-on-surface-variant text-sm leading-relaxed">Expertise complète pour franchir les barrières douanières sans encombre.</p>
+</div>
+<!-- Service Card 2 -->
+<div class="bg-white p-8 rounded-xl scale-102-hover transition-all duration-300 group">
+<div class="bg-surface-container-low w-14 h-14 flex items-center justify-center rounded-lg mb-6 group-hover:bg-on-tertiary-container transition-colors">
+<span class="material-symbols-outlined text-3xl text-primary-container group-hover:text-white">flight_takeoff</span>
+</div>
+<h3 class="text-xl font-bold text-blue-900 font-headline mb-1">Fret Aérien</h3>
+<p class="text-sm font-semibold text-on-tertiary-container mb-4" dir="rtl">الشحن الجوي</p>
+<p class="text-on-surface-variant text-sm leading-relaxed">Rapidité et sécurité maximale pour vos envois urgents à travers le monde.</p>
+</div>
+<!-- Service Card 3 -->
+<div class="bg-white p-8 rounded-xl scale-102-hover transition-all duration-300 group">
+<div class="bg-surface-container-low w-14 h-14 flex items-center justify-center rounded-lg mb-6 group-hover:bg-on-tertiary-container transition-colors">
+<span class="material-symbols-outlined text-3xl text-primary-container group-hover:text-white">directions_boat</span>
+</div>
+<h3 class="text-xl font-bold text-blue-900 font-headline mb-1">Fret Maritime (FCL &amp; LCL)</h3>
+<p class="text-sm font-semibold text-on-tertiary-container mb-4" dir="rtl">الشحن البحري</p>
+<p class="text-on-surface-variant text-sm leading-relaxed">Conteneurs complets ou groupage pour une optimisation de vos coûts.</p>
+</div>
+<!-- Service Card 4 -->
+<div class="bg-white p-8 rounded-xl scale-102-hover transition-all duration-300 group">
+<div class="bg-surface-container-low w-14 h-14 flex items-center justify-center rounded-lg mb-6 group-hover:bg-on-tertiary-container transition-colors">
+<span class="material-symbols-outlined text-3xl text-primary-container group-hover:text-white">local_shipping</span>
+</div>
+<h3 class="text-xl font-bold text-blue-900 font-headline mb-1">Transport Routier</h3>
+<p class="text-sm font-semibold text-on-tertiary-container mb-4" dir="rtl">النقل البري</p>
+<p class="text-on-surface-variant text-sm leading-relaxed">Solutions de transport national et international fiables et rapides.</p>
+</div>
+<!-- Service Card 5 -->
+<div class="bg-white p-8 rounded-xl scale-102-hover transition-all duration-300 group">
+<div class="bg-surface-container-low w-14 h-14 flex items-center justify-center rounded-lg mb-6 group-hover:bg-on-tertiary-container transition-colors">
+<span class="material-symbols-outlined text-3xl text-primary-container group-hover:text-white">conveyor_belt</span>
+</div>
+<h3 class="text-xl font-bold text-blue-900 font-headline mb-1">Groupage</h3>
+<p class="text-sm font-semibold text-on-tertiary-container mb-4" dir="rtl">الشحن المجمع</p>
+<p class="text-on-surface-variant text-sm leading-relaxed">Collecte et chargement partiel pour vos petites et moyennes expéditions.</p>
+</div>
+<!-- Service Card 6 -->
+<div class="bg-white p-8 rounded-xl scale-102-hover transition-all duration-300 group">
+<div class="bg-surface-container-low w-14 h-14 flex items-center justify-center rounded-lg mb-6 group-hover:bg-on-tertiary-container transition-colors">
+<span class="material-symbols-outlined text-3xl text-primary-container group-hover:text-white">public</span>
+</div>
+<h3 class="text-xl font-bold text-blue-900 font-headline mb-1">Import-Export complet</h3>
+<p class="text-sm font-semibold text-on-tertiary-container mb-4" dir="rtl">اللوجستيك المتكامل</p>
+<p class="text-on-surface-variant text-sm leading-relaxed">Gestion de A à Z de votre chaîne logistique internationale.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Us Section -->
+<section class="py-24 bg-primary" id="why-us">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid lg:grid-cols-2 gap-16 items-center">
+<div class="order-2 lg:order-1 space-y-12">
+<div>
+<h2 class="text-4xl font-extrabold text-white font-headline">Pourquoi choisir AF2T ?</h2>
+<p class="text-on-primary-container mt-4">Plus qu'un prestataire, un partenaire stratégique pour votre croissance.</p>
+</div>
+<div class="grid gap-8">
+<div class="flex gap-6">
+<div class="shrink-0 w-12 h-12 bg-on-tertiary-container/20 flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined text-on-tertiary-container">history</span>
+</div>
+<div>
+<h4 class="text-white font-bold text-lg">Expérience depuis 2004</h4>
+<p class="text-on-primary-container text-sm">Vingt ans d'expertise au service des entreprises marocaines et internationales.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="shrink-0 w-12 h-12 bg-on-tertiary-container/20 flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined text-on-tertiary-container">handshake</span>
+</div>
+<div>
+<h4 class="text-white font-bold text-lg">Proximité Client</h4>
+<p class="text-on-primary-container text-sm">Une équipe dédiée qui comprend vos enjeux locaux et globaux.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="shrink-0 w-12 h-12 bg-on-tertiary-container/20 flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined text-on-tertiary-container">verified_user</span>
+</div>
+<div>
+<h4 class="text-white font-bold text-lg">Expertise Douanière</h4>
+<p class="text-on-primary-container text-sm">Réduction des délais de dédouanement grâce à notre agrément et savoir-faire.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="shrink-0 w-12 h-12 bg-on-tertiary-container/20 flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined text-on-tertiary-container">savings</span>
+</div>
+<div>
+<h4 class="text-white font-bold text-lg">Solutions Économiques</h4>
+<p class="text-on-primary-container text-sm">Optimisation des coûts de transport via nos réseaux partenaires mondiaux.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="order-1 lg:order-2">
+<div class="relative p-8">
+<div class="absolute inset-0 bg-on-tertiary-container/10 rounded-3xl rotate-3"></div>
+<img alt="Global Network" class="relative rounded-2xl w-full h-full object-cover z-10" data-alt="Dynamic collage of international transit modes including a cargo plane, a container ship, and a modern AF2T semi-truck against a deep blue sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9Gf_3mZh_oAAcSVyErB9I55KDbZXC4qc990aO113KdG7FZHZQ7DAXha9JR0LvskXf7TjQuGaNX3NNS_E-3HVCBU5EUUav4INYSaOtV-GDiUvxfl2NM5tU8dc-o8WjFkLrUuxRSsqSrpfUfoehaG7O3itAX2xfTAQ4gqrXtnOiII4lW4qgv4MWEvLOjKU2XDz5ng0F2C68kzAZeLtdE_Sf98Oza7NK8W_3l7vpve4N9-DaJqZSocgYXi78qb288RSpdCY-cW3y1HM"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-24 bg-surface" id="contact">
+<div class="max-w-7xl mx-auto px-8">
+<div class="bg-white rounded-3xl overflow-hidden grid lg:grid-cols-5 shadow-2xl">
+<div class="lg:col-span-2 bg-blue-950 p-12 text-white flex flex-col justify-between">
+<div class="space-y-8">
+<h2 class="text-4xl font-extrabold font-headline">Contactez-nous</h2>
+<p class="text-slate-300">Notre équipe est à votre disposition pour toute étude de projet logistique ou demande de cotation.</p>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-on-tertiary-container">location_on</span>
+<div>
+<p class="font-bold">Adresse</p>
+<p class="text-slate-400 text-sm">Route de Safi, Résidence Al Kawtar n° 30/31, Marrakech, Maroc</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-on-tertiary-container">phone</span>
+<div>
+<p class="font-bold">Téléphone</p>
+<p class="text-slate-400 text-sm">+212 5 24 43 75 27</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-on-tertiary-container">mail</span>
+<div>
+<p class="font-bold">Email</p>
+<p class="text-slate-400 text-sm">contact@af2t.ma</p>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-12">
+<div class="h-[200px] rounded-xl overflow-hidden grayscale opacity-50 contrast-125">
+<img alt="Marrakech Map" class="w-full h-full object-cover" data-alt="Simplified schematic map of Marrakech city showing the industrial district near Route de Safi with subtle navy branding markers" data-location="Marrakech" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXGwsAJ6ZRGTzuQNStYz0Aaj1fmfZHprHU-dnrvVmzS03MmDpV50N4y2HIpEDsWj0Csfa72dQwlsyyuLvz635RcNOQtWYtuTS4-oWPFENN1rWOX6_7r88cCmp9JVJ-alboirUCLRhIMLbqP4dM91xSiRdFey6ooi0M7-qGSy7Q3V3jVCLGdNkwly43nwr4ttHXz2PuDyItSMMZXuLgWz2hj709PaUqsN5pB7OUwzf61StX5_wIlKNIgYFM4yW_dSzhk7mk6x5aFCQ"/>
+</div>
+</div>
+</div>
+<div class="lg:col-span-3 p-12">
+<form class="space-y-6">
+<div class="grid md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-sm font-bold text-blue-900 uppercase tracking-wider">Nom complet</label>
+<input class="w-full bg-surface-container-low border-none rounded-lg p-4 focus:bg-white focus:ring-2 focus:ring-primary/30 transition-all" placeholder="Jean Dupont" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-bold text-blue-900 uppercase tracking-wider">Entreprise</label>
+<input class="w-full bg-surface-container-low border-none rounded-lg p-4 focus:bg-white focus:ring-2 focus:ring-primary/30 transition-all" placeholder="Nom de votre société" type="text"/>
+</div>
+</div>
+<div class="grid md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-sm font-bold text-blue-900 uppercase tracking-wider">Email</label>
+<input class="w-full bg-surface-container-low border-none rounded-lg p-4 focus:bg-white focus:ring-2 focus:ring-primary/30 transition-all" placeholder="email@exemple.com" type="email"/>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-bold text-blue-900 uppercase tracking-wider">Type de service</label>
+<select class="w-full bg-surface-container-low border-none rounded-lg p-4 focus:bg-white focus:ring-2 focus:ring-primary/30 transition-all">
+<option>Dédouanement</option>
+<option>Fret Aérien</option>
+<option>Fret Maritime</option>
+<option>Transport Routier</option>
+</select>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-bold text-blue-900 uppercase tracking-wider">Message</label>
+<textarea class="w-full bg-surface-container-low border-none rounded-lg p-4 focus:bg-white focus:ring-2 focus:ring-primary/30 transition-all" placeholder="Détaillez votre demande..." rows="4"></textarea>
+</div>
+<button class="w-full bg-on-tertiary-container text-white py-4 rounded-lg font-headline font-bold text-lg hover:shadow-lg transition-all">Envoyer la demande</button>
+</form>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-blue-950 dark:bg-black w-full py-12">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 max-w-7xl mx-auto gap-4">
+<div class="flex items-center gap-3">
+<img alt="AF2T Footer Logo" class="h-8 w-auto brightness-0 invert" data-alt="AF2T logo reversed in white on a dark navy background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2tXQ1CN3NByK-7c7dFU0p9BcAVsilln6NBeGOJM6lt6KlS3lv86v4Z2f_s4B4RGf0ZP9SijLr2K_FlQUQMZIlQhxZgttxVnEFvIlm6yKuDBBrtHB1XTKfkwuMRWODCNIksmwqCmD4C665wmk-6JlVr8KM42mAiwDP6jpeHSlfuwrJ0dZvdPyNtoigaU_T7cbrhw-mYeawXMBMKkMmP_sG9ma16YaUFOVFrcc8qIO0daiBqnvxI_nZrNcOqo19U4Cf8ApvktZXKB8"/>
+<span class="text-xl font-black text-white headline font-headline tracking-tighter">AF2T GLOBAL LOGISTICS</span>
+</div>
+<div class="flex gap-8 font-inter text-xs tracking-wider uppercase">
+<a class="text-slate-300 hover:text-white transition-colors" href="#">Mentions Légales</a>
+<a class="text-slate-300 hover:text-white transition-colors" href="#">Politique de Confidentialité</a>
+<a class="text-slate-300 hover:text-white transition-colors" href="#">Partenaires</a>
+<a class="text-slate-300 hover:text-white transition-colors" href="#">Carrières</a>
+</div>
+<div class="text-white/60 font-inter text-xs tracking-widest uppercase">
+                © 2026 AF2T Global Logistics. L'Excellence Architecturale en Transit.
+            </div>
+</div>
+</footer>
+</body></html>
