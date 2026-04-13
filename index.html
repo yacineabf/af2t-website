@@ -107,6 +107,11 @@
             <a class="text-white/70 hover:text-white transition-colors" href="services.html">Nos Services</a>
             <a class="text-white/70 hover:text-white transition-colors" href="why-us.html">Pourquoi nous choisir</a>
             <a class="text-white/70 hover:text-white transition-colors" href="contact.html">Contact</a>
+            <div class="flex items-center gap-3 px-6 py-3 bg-white/10 backdrop-blur-md rounded-full mt-4">
+                <button id="mobile-lang-fr" class="text-white font-bold text-base cursor-pointer hover:opacity-80 transition-opacity">FR</button>
+                <span class="text-white/50">|</span>
+                <button id="mobile-lang-ar" class="text-white/70 text-base cursor-pointer hover:text-white transition-colors">العربية</button>
+            </div>
             <a href="contact.html" class="bg-on-tertiary-container text-white px-8 py-4 rounded-lg font-bold mt-4">
                 Demander un devis
             </a>
@@ -410,32 +415,47 @@
         // Language switcher
         const langFr = document.getElementById('lang-fr');
         const langAr = document.getElementById('lang-ar');
+        const mobileLangFr = document.getElementById('mobile-lang-fr');
+        const mobileLangAr = document.getElementById('mobile-lang-ar');
         const htmlElement = document.documentElement;
 
-        langAr.addEventListener('click', () => {
+        function switchToArabic() {
             htmlElement.setAttribute('dir', 'rtl');
             htmlElement.setAttribute('lang', 'ar');
             langAr.classList.remove('text-outline');
             langAr.classList.add('text-primary', 'font-bold');
             langFr.classList.remove('text-primary', 'font-bold');
             langFr.classList.add('text-outline');
+            mobileLangAr.classList.remove('text-white/70');
+            mobileLangAr.classList.add('font-bold');
+            mobileLangFr.classList.remove('font-bold');
+            mobileLangFr.classList.add('text-white/70');
             localStorage.setItem('language', 'ar');
-        });
+        }
 
-        langFr.addEventListener('click', () => {
+        function switchToFrench() {
             htmlElement.setAttribute('dir', 'ltr');
             htmlElement.setAttribute('lang', 'fr');
             langFr.classList.remove('text-outline');
             langFr.classList.add('text-primary', 'font-bold');
             langAr.classList.remove('text-primary', 'font-bold');
             langAr.classList.add('text-outline');
+            mobileLangFr.classList.remove('text-white/70');
+            mobileLangFr.classList.add('font-bold');
+            mobileLangAr.classList.remove('font-bold');
+            mobileLangAr.classList.add('text-white/70');
             localStorage.setItem('language', 'fr');
-        });
+        }
+
+        langAr.addEventListener('click', switchToArabic);
+        langFr.addEventListener('click', switchToFrench);
+        mobileLangAr.addEventListener('click', switchToArabic);
+        mobileLangFr.addEventListener('click', switchToFrench);
 
         // Load saved language preference
         const savedLang = localStorage.getItem('language');
         if (savedLang === 'ar') {
-            langAr.click();
+            switchToArabic();
         }
     </script>
 </body>
