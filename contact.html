@@ -169,30 +169,30 @@
                         </div>
                         <div class="lg:col-span-3 p-12">
                             <h3 class="text-3xl font-bold text-primary font-headline mb-8">Demander un devis</h3>
-                            <form class="space-y-6">
+                            <form id="contact-form" class="space-y-6">
                                 <div class="grid md:grid-cols-2 gap-6">
                                     <div class="space-y-2">
                                         <label class="text-sm font-bold text-primary uppercase tracking-wide">Nom complet *</label>
-                                        <input type="text" required class="w-full bg-surface-container-highest px-4 py-4 rounded-lg focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all" placeholder="Jean Dupont"/>
+                                        <input type="text" name="user_name" required class="w-full bg-surface-container-highest px-4 py-4 rounded-lg focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all" placeholder="Jean Dupont"/>
                                     </div>
                                     <div class="space-y-2">
                                         <label class="text-sm font-bold text-primary uppercase tracking-wide">Entreprise *</label>
-                                        <input type="text" required class="w-full bg-surface-container-highest px-4 py-4 rounded-lg focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all" placeholder="Nom de votre société"/>
+                                        <input type="text" name="company" required class="w-full bg-surface-container-highest px-4 py-4 rounded-lg focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all" placeholder="Nom de votre société"/>
                                     </div>
                                 </div>
                                 <div class="grid md:grid-cols-2 gap-6">
                                     <div class="space-y-2">
                                         <label class="text-sm font-bold text-primary uppercase tracking-wide">Email *</label>
-                                        <input type="email" required class="w-full bg-surface-container-highest px-4 py-4 rounded-lg focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all" placeholder="email@exemple.com"/>
+                                        <input type="email" name="user_email" required class="w-full bg-surface-container-highest px-4 py-4 rounded-lg focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all" placeholder="email@exemple.com"/>
                                     </div>
                                     <div class="space-y-2">
                                         <label class="text-sm font-bold text-primary uppercase tracking-wide">Téléphone *</label>
-                                        <input type="tel" required class="w-full bg-surface-container-highest px-4 py-4 rounded-lg focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all" placeholder="+212 6 XX XX XX XX"/>
+                                        <input type="tel" name="user_phone" required class="w-full bg-surface-container-highest px-4 py-4 rounded-lg focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all" placeholder="+212 6 XX XX XX XX"/>
                                     </div>
                                 </div>
                                 <div class="space-y-2">
                                     <label class="text-sm font-bold text-primary uppercase tracking-wide">Type de service *</label>
-                                    <select required class="w-full bg-surface-container-highest px-4 py-4 rounded-lg focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all">
+                                    <select name="service_type" required class="w-full bg-surface-container-highest px-4 py-4 rounded-lg focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all">
                                         <option value="">Sélectionnez un service</option>
                                         <option value="transit">Transit & Dédouanement</option>
                                         <option value="aerien">Fret Aérien</option>
@@ -205,7 +205,7 @@
                                 </div>
                                 <div class="space-y-2">
                                     <label class="text-sm font-bold text-primary uppercase tracking-wide">Message *</label>
-                                    <textarea required rows="6" class="w-full bg-surface-container-highest px-4 py-4 rounded-lg focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all" placeholder="Décrivez votre besoin en détail: origine, destination, type de marchandise, volume, délais souhaités..."></textarea>
+                                    <textarea name="message" required rows="6" class="w-full bg-surface-container-highest px-4 py-4 rounded-lg focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all" placeholder="Décrivez votre besoin en détail: origine, destination, type de marchandise, volume, délais souhaités..."></textarea>
                                 </div>
                                 <button type="submit" class="w-full bg-on-tertiary-container text-white py-5 rounded-lg font-headline font-bold text-lg hover:scale-105 transition-transform">
                                     Envoyer la demande
@@ -346,6 +346,34 @@
         if (savedLang === 'ar') {
             switchToArabic();
         }
+    </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("6Qp7CcPMh3bTkuvxA");
+        })();
+
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.innerText;
+            btn.innerText = 'Envoi en cours...';
+            btn.disabled = true;
+
+            emailjs.sendForm('service_2e38ulp', 'template_upl9zev', this)
+                .then(function() {
+                    alert('Message envoyé avec succès !');
+                    document.getElementById('contact-form').reset();
+                    btn.innerText = originalText;
+                    btn.disabled = false;
+                }, function(error) {
+                    alert('L\'envoi du message a échoué. Veuillez réessayer.');
+                    console.log('FAILED...', error);
+                    btn.innerText = originalText;
+                    btn.disabled = false;
+                });
+        });
     </script>
 </body>
 </html>
